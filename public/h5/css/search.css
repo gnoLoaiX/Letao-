@@ -1,0 +1,30 @@
+.lt_search {
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.lt_search input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #006699;
+    text-align: left;
+    margin: 0;
+    padding: 6px 10px;
+    height: 30px;
+    font-size: 14px;
+}
+.lt_search a {
+    width: 60px;
+    height: 30px;
+    background: #006699;
+    text-align: center;
+    line-height: 30px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    color: white;
+    position: absolute;
+    font-size: 14px;
+    right: 10px;
+    top: 10px;
+}
+/*搜索框大容器相对定位 按钮绝对定位的形式*/

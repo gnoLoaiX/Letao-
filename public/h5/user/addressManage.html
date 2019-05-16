@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <title>收货地址管理</title>
+    <link type="image/x-icon" rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="../assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/user/userIndex.css"/>
+</head>
+<body>
+<div class="cz_layout bgg">
+    <header class="lt_topBar">
+        <a href="javascript:history.back();" class="icon_back fa fa-arrow-left"></a>
+        <h3>收货地址管理</h3>
+    </header>
+
+    <div class="lt_container">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <!-- TODO -->
+                <div class="loading"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="lt_bottomBar">
+        <ul>
+            <li><a href="../index.html"><span class="fa fa-home"></span><p>首页</p></a></li>
+            <li><a href="../category.html"><span class="fa fa-bars"></span><p>分类</p></a></li>
+            <li><a href="../user/cart.html"><span class="fa fa-shopping-cart"></span><p>购物车</p></a></li>
+            <li><a href="../user/userIndex.html"><span class="fa fa-user"></span><p>会员中心</p></a></li>
+        </ul>
+    </footer>
+</div>  
+<script type="text/html" id="addressTpl">
+    <% if(model && model.length < 5){ %>
+        <a class="mui-btn btn_link mui-block" href="increaseAddress.html">添加收货地址</a>
+    <% } %>
+    <ul class="mui-table-view">
+    <% if(model && model.length){ %>
+        <% for(var i = model.length-1 ; i >=0 ; i --){ %>
+        <% var item = model[i]; %>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-right mui-disabled">
+                <a data-id="<%=item.id%>" class="mui-btn mui-btn-red">删除</a>
+            </div>
+            <a href="increaseAddress.html?addressId=<%=item.id%>" class="mui-navigate-right mui-slider-handle">
+                <div class="delivery">
+                    邮&nbsp;编：<span><%=item.postCode%></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;收货人：<span><%=item.recipients%></span>
+                </div>
+                <div class="address"><%=item.address%><%=item.addressDetail%></div>
+            </a>
+        </li>
+        <% } %>
+    <%}%>
+</script>
+<script src="../assets/mui/js/mui.min.js"></script>
+<script src="../assets/zepto/zepto.min.js"></script>
+<script src="../assets/artTemplate/template-native.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/user/addressManage.js"></script>
+</body>
+</html>

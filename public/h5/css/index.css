@@ -1,0 +1,36 @@
+.lt_nav img {
+    float: left;
+    width: 33.3333%;
+}
+.lt_nav {
+    background: #fff;
+    padding: 10px 10px 0px 10px;
+}
+/* 商品区块 */
+.lt_product {
+    background: #fff;
+}
+.lt_product a {
+    float: left;
+    padding-bottom: 10px;
+    box-shadow: 0 0 10px #ccc;
+    text-align: center;
+    color: #8f8f94;
+}
+.lt_product  img{
+    width: 100%;
+    display: block;
+}
+.lt_product .mui-content {
+    background: #fff;
+}
+.lt_product .mui-col-xs-6 {
+    padding: 10px 10px;
+}
+.lt_product p span:first-child{
+    color: red;
+}
+/*
+1、使用了mui的栅格系统完成了商品展示的功能 需要注意的是 文档没有写
+2、实例:通过为列设置padding 属性，从而创建列与列之间的间隔 所以要想达到与屏幕有间距 你得设置栅格系统的间隔值
+*/

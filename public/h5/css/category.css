@@ -1,0 +1,52 @@
+/* 一级分类 */
+.cate_left {
+    width: 90px;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+.cate_left ul {
+    padding: 0px;
+    margin: 0;
+}
+.cate_left li {
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #f3f4f5;
+}
+.cate_left li a {
+    color: #333;
+    font-size: 14px;
+}
+.cate_left ul li.now{
+    background: #fff;
+    border-right: none;
+    border-bottom: none;
+}
+.cate_left ul li.now a{
+    color: orange;
+}
+/* 二级分类 */
+
+.cate_right li {
+    list-style: none;
+    width:28%;
+    float: left;
+}
+.cate_right li a {
+    display: block;
+    width: 100%;
+}
+.cate_right li a img {
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+}
+.cate_right a p {
+    text-align: center;
+}

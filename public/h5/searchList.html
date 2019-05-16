@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <!--ios是否运行创建快捷启动方式-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--ios顶部通知栏的样式 黑色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--遇到数字不让转成电话号码格式-->
+    <meta content="telephone=no" name="format-detection">
+    <meta name="description" content="乐淘是中国最大的正品运动鞋、皮鞋网上专卖。乐淘网经营的品牌包括耐克、阿迪达斯、李宁、匡威等国内外知名品牌的篮球鞋,板鞋,休闲鞋,跑步鞋,帆布...">
+    <meta name="Keywords"
+          content="乐淘 乐淘鞋城 买鞋子 上乐淘 运动鞋 篮球鞋 帆布鞋 跑步鞋 男鞋 女鞋 足球鞋 休闲鞋 凉鞋 户外鞋 布洛克 高跟鞋 单鞋 豆豆鞋 乐福鞋 牛津鞋 凉拖 皮鞋 短靴 长靴 登山鞋 徒步鞋 硫化鞋 训练鞋 溯溪鞋 越野鞋 板鞋 足球鞋 网球鞋 赛车鞋 雪地靴 马丁靴 商务 英伦">
+    <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="assets/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/searchList.css">
+    <title>商品列表</title>
+</head>
+<body>
+<!--顶部通栏-->
+<header class="lt_topBar">
+    <a href="javascript:history.back();" class="btn_left"><span class="mui-icon mui-icon-back"></span></a>
+    <h3>商品列表</h3>
+</header>
+<div class="mui-scroll-wrapper" id="refreshContainer">
+    <div class="mui-scroll">
+        <!--搜索输入区域-->
+        <section class="lt_search">
+            <form action="#">
+                <input type="search" placeholder="搜索你喜欢的商品">
+            </form>
+            <a href="javascript:;">搜索</a>
+        </section>
+        <!--搜素历史区域-->
+        <section class="lt_history">
+            <!--排序-->
+            <div class="lt_order">
+                <a href="javascript:;" data-order="time">上架时间 <span class="fa fa-angle-down"></span></a>
+                <a href="javascript:;" data-order="price">价格 <span class="fa fa-angle-down"></span></a>
+                <a href="javascript:;" data-order="num">销量 <span class="fa fa-angle-down"></span></a>
+                <a href="javascript:;" data-order="scale">折扣 <span class="fa fa-angle-down"></span></a>
+            </div>
+            <!--商品区域-->
+            <div class="lt_product">
+                <!-- TODO -->
+            </div>
+        </section>
+    </div>
+</div>
+<!--底部页签-->
+<footer class="lt_bottomBar">
+    <ul>
+        <li><a href="index.html"><span class="fa fa-home"></span><p>首页</p></a></li>
+        <li><a href="category.html"><span class="fa fa-bars"></span><p>分类</p></a></li>
+        <li><a href="cart.html"><span class="fa fa-shopping-cart"></span><p>购物车</p></a></li>
+        <li><a href="user/userIndex.html"><span class="fa fa-user"></span><p>会员中心</p></a></li>
+    </ul>
+</footer>
+<!--图片是数组：默认第一张 判断数据库有没有数据 不然会报错-->
+<script type="text/template" id="list">
+    <% if(data.length > 0){ %>
+        <% for(var i = 0; i < data.length ; i++){ %>
+        <% var item = data[i]; %>
+        <div class="pro_item">
+            <a href="product.html?productId=<%=item.id%>" class="pro_item_box">
+                <% if(item.pic && item.pic[0]){ %>
+                <img src="<%=item.pic[0].picAddr%>">
+                <% }else{ %>
+                <img src="images/none01.jpg">
+                <% } %>
+                <p class="mui-ellipsis-2"><%=item.proName%></p>
+                <p><span class="nowPrice">&yen;<%=item.price%></span> <span class="oldPrice">&yen;<%=item.oldPrice%></span></p>
+                <button class="button">立即购买</button>
+            </a>
+        </div>
+        <% } %>
+    <% }else{ %>
+        <span class="mui-pull-left">没有搜索到该商品</span>
+    <% } %>
+</script>
+<script src="assets/zepto/zepto.min.js"></script>
+<script src="assets/mui/js/mui.min.js"></script>
+<script src="assets/artTemplate/template-native.js"></script>
+<script src="js/searchList.js"></script>
+<script src="js/common.js"></script>
+</body>
+</html>
