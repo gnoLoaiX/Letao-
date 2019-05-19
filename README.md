@@ -9,5 +9,5 @@ SQL语句导入到Wampserver64即可使用：是Windows上的Web开发平台，�
 
 ![image](https://github.com/gnoLoaiX/letao--/blob/master/public/h5/images/index.png)
 
-<div align=center><img width="150" height="150" src="https://github.com/gnoLoaiX/letao--/blob/master/public/h5/images/index.png"/></div>
+<div align=center><img width="417" height="712" src="https://github.com/gnoLoaiX/letao--/blob/master/public/h5/images/index.png"/></div>
 
