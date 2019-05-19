@@ -1,8 +1,10 @@
 ## letao--
 上手前后端分离项目-电商类网站研发的基本操作
-前端技术栈有：jQuery、js、Ajax，主要使用Ajax完成页面的交互功能
+前端技术栈有：jQuery、js、Ajax，主要使用Ajax完成页面的交互功能、bootstrap搭建网站后台管理页面、zpeto开发移动端页面、mui框架原生UI控件
 
 进行前后端分离开发需要配置好本地开发环境。这时用命令行 `npm start` 启动项目，因为源码部署于服务器，环境运行在 `node` 中。要使用规定的 `URL`地址：
 localhost:3000
 
 SQL语句导入到Wampserver64即可使用：是Windows上的Web开发平台，允许您使用Apache2，PHP和MySQL创建动态Web应用程序。
+
+
