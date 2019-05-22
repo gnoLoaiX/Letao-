@@ -20,19 +20,23 @@
             <div class="avatar">
                 <img src="images/monkey.png" alt="">
             </div>
-
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">
-                    <i class="fa fa-user"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">
-                    <i class="fa fa-key"></i>
-                </span>
-                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-            </div>
+            <form action=" " class="col-md-10">
+                <!-- input-group-lg 组件:输入框bootstrap大小设置 -->
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="用户名" id="username">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input type="password" class="form-control" placeholder="密&nbsp;&nbsp;码" id="password">
+                </div>
+                <!-- btn-lg 组件 input框bootstrap大小设置 -->
+                <button type="button" class="btn btn-primary btn-lg btn-block">登 录</button>
+            </form>
         </div>
     </section>
 
@@ -40,6 +44,7 @@
     <script src="assets/jquery/jquery.min.js"></script>
     <!--bootstrap 的核心文件.-->
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
