@@ -4,6 +4,10 @@
 
 进行前后端分离开发需要配置好本地开发环境。这时用命令行 `npm start` 启动项目，因为源码部署于服务器，环境运行在 `node` 中。要使用规定的 `URL`地址：
 `http://localhost:3000/h5/index.html` 
+</br>
+移动端登录密码可数据库可视化软件查看：一般为：root 11111 </br>
+pc端的登录密码：root 123456
+
 
 SQL语句导入到Wampserver64即可使用：是Windows上的Web开发平台，允许您使用Apache2，PHP和MySQL创建动态Web应用程序。
 </br>
