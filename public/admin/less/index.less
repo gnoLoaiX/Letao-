@@ -1,0 +1,130 @@
+body{
+  font-family: "Microsoft YaHei";
+}
+a:hover,a:active,a:focus{
+  text-decoration: none;
+}
+/*login page*/
+.bg_login{
+  background: #222d32;
+}
+.mt_150{
+  margin-top: 150px;
+}
+.mr_50{
+  margin-right: 50px;
+}
+.mb_15{
+  margin-bottom: 15px;
+}
+/*main page*/
+.ad_aside{
+  width: 180px;
+  height: 100%;
+  background: #222d32;
+  position: absolute;
+  .brand{
+    width: 100%;
+    height: 50px;
+    background: #367fa9;
+    a{
+      color: #fff;
+      display: block;
+      line-height: 50px;
+      text-align: center;
+      font-size: 17px;
+      font-weight: bold;
+    }
+  }
+}
+
+.ad_aside .user{
+  padding: 30px 20px;
+  img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+  span{
+    color: #fff;
+    font-size: 12px;
+  }
+}
+
+.ad_aside .menu ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    color: #aaa;
+    border: 3px solid transparent;
+    padding-left: 30px;
+  }
+  li.now > a{
+    border-left-color: #3c8dbc;
+    background: #1d1f21;
+    color: #fff;
+  }
+  .child a{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 50px;
+    font-size: 12px;
+    &.now {
+      color: #fff;
+    }
+  }
+}
+
+.ad_section{
+  padding-left: 180px;
+  &.menu{
+    /*预设置切换设置 方便切换class 如果通过js设置 会比较麻烦*/
+    padding-left: 0;
+  }
+  .ad_nav{
+    height: 50px;
+    background: #3c8dbc;
+    margin-bottom: 20px;
+    a{
+      font-size: 16px;
+      color: #fff;
+      margin-top: 14px;
+      &:first-child{
+        margin-left: 15px;
+        float: left;
+      }
+      &:last-child{
+        margin-right: 15px;
+        float: right;
+      }
+    }
+  }
+}
+
+
+.ad_content{
+  margin-top: 50px;
+  .picTable{
+    float: left;
+    width: 45%;
+    height: 400px;
+    &:last-child {
+      margin-left: 80px;
+    }
+  }
+}
+
+.table th,.table td{
+  text-align: center;
+}
+.page{
+  text-align: right;
+  .pagination{
+    margin-top: 0;
+  }
+}

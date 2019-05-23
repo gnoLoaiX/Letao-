@@ -35,3 +35,9 @@
   width: 18px;
   font-size: 20px;
 }
+/* 在大屏设备的时候   1200px以上 宽度100% 因为不加的话 会导致在这种宽度的屏幕 输入框变窄 */
+@media screen and (min-width: 992px) {
+  .col-md-10 {
+    width: 100%;
+  }
+}
