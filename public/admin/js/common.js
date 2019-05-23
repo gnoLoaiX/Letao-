@@ -1,5 +1,8 @@
 $(function () {
     // 1、请求进度条显示-jQueryajaxStart方法
+    NProgress.configure({
+        showSpinner: false
+    })
     $(window).ajaxStart(function () {
         NProgress.start()
     }).ajaxStart(function () {
