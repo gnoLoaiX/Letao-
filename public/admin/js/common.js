@@ -2,6 +2,7 @@ $(function () {
     // 1、请求进度条显示-jQueryajaxStart方法
     NProgress.configure({
         showSpinner: false
+        //如果要改变默认颜色，就要在nprogress.css文件中修改。
     })
     $(window).ajaxStart(function () {
         NProgress.start()
