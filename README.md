@@ -1,7 +1,8 @@
 ## letao--
 前后端分离项目-电商类网站</br>
-前端技术栈有：jQuery、js、Ajax，主要使用Ajax完成页面的交互功能、bootstrap搭建网站后台管理页面、zpeto开发移动端页面、mui框架原生UI控件
-</br>
+前端技术栈有：jQuery、js、Ajax，主要使用Ajax完成页面的交互功能、bootstrap搭建网站后台管理页面、zpeto开发移动端页面、mui框架原生UI控件</br>
+</br></br>
+主要使用的插件是：</br>
 mui框架使用</br>
 前端校验插件、</br>
 echarts数据可视化、</br>
