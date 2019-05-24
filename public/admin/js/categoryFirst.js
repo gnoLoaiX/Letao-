@@ -82,7 +82,6 @@ $(function () {
             $(e.target).data('bootstrapValidator').resetForm()
             $(e.target).find('input').val('')
         })
-
     })
 })
 
