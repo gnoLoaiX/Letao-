@@ -1,6 +1,13 @@
 ## letao--
 前后端分离项目-电商类网站</br>
 前端技术栈有：jQuery、js、Ajax，主要使用Ajax完成页面的交互功能、bootstrap搭建网站后台管理页面、zpeto开发移动端页面、mui框架原生UI控件
+</br>
+mui框架使用</br>
+前端校验插件、</br>
+echarts数据可视化、</br>
+Ajax进度条组件、</br>
+模板引擎渲染、</br>
+图片上传插件</br>
 
 进行前后端分离开发需要配置好本地开发环境。这时用命令行 `npm start` 启动项目，因为源码部署于服务器，环境运行在 `node` 中。要使用规定的 `URL`地址：
 `http://localhost:3000/h5/index.html` 
