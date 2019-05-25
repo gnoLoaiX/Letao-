@@ -1,4 +1,13 @@
 $(function () {
+    /*模板无法访问外部变量的解决方案*/
+    /*var getJquery = function () {
+        return jQuery;
+    }*/
+    /*辅助方法：在模板内部可以使用的函数*/
+    template.helper('getJquery', function () {
+        return jQuery
+    })
+
     // currPage 页码
     var currPage = 1
     // 1、渲染用户数据
@@ -38,12 +47,14 @@ $(function () {
     $('#addBtn').on('click', function () {
         $('#addModal').modal('show')
     })
+    initDropDown()
+    initUpLoad()
 
     // 3.2、进行表单校验--代码copy修改
     $("form").bootstrapValidator({
         /*校验插件默认会忽略  隐藏的表单元素
         不忽略任何情况的表单元素*/
-        excluded:[],
+        excluded: [],
         // 设置验证通过和不通过的图标
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -61,14 +72,14 @@ $(function () {
                         message: '一级分类名称不能为空'
                     }
                 },
-                brandName:{
+                brandName: {
                     validators: {
                         notEmpty: {
                             message: '请输入二级分类名称'
                         }
                     }
                 },
-                brandLogo:{
+                brandLogo: {
                     validators: {
                         notEmpty: {
                             message: '请上传二级分类Logo'
@@ -80,24 +91,36 @@ $(function () {
     }).on('success.form.bv', function (e) {
         e.preventDefault();
         /*提交数据了*/
-        var $form = $(e.target);
+        var $form = $(e.target)
+        // var dataObj = {
+        //     categoryId: window.categoryId,
+        //     brandName: $.trim($("[name='brandName']").val()),
+        //     brandLogo: $.trim($('[name="brandLogo"]').val()),
+        //     hot: 0
+        // }
+        // console.log(dataObj.categoryId +'======'+ dataObj.brandName)
+
         $.ajax({
-            type:'post',
-            url:'/category/addSecondCategory',
-            data:$form.serialize(),
-            dataType:'json',
-            success:function (data) {
-                if(data.success){
-                    /*关闭模态框*/
-                    $('#addModal').modal('hide');
-                    /*渲染第一页*/
-                    currPage = 1;
-                    render();
-                    /*重置表单数据和校验样式*/
-                    $form[0].reset();
-                    $form.data('bootstrapValidator').resetForm();
-                    $('.dropdown-text').html('请选择');
-                    $form.find('img').attr('src','images/none.png');
+            type: "post",
+            url: "/category/addSecondCategory",
+            data: {
+                categoryId: window.categoryId,
+                brandName: $.trim($("[name='brandName']").val()),
+                brandLogo: $.trim($('[name="brandLogo"]').val()),
+                hot: 0
+            },
+            dataType: "json",
+            success: function (res) {
+                if (res.success) {
+                    /*关闭模态框 渲染第一页*/
+                    $('#save').modal('hide')
+                    currentPage = 1
+                    render()
+                    /*重置表单*/
+                    $form.data('bootstrapValidator').resetForm()
+                    $form.find('input').val('')
+                    $('.dropdown-text').html('请选择')
+                    $form.find('img').attr('src','images/none.png')
                 }
             }
         })
@@ -111,10 +134,45 @@ var getCategorySecondData = function (params, callback) {
         url: '/category/querySecondCategoryPaging',
         data: params,
         dataType: 'json',
-        success: function (data) {
-            callback && callback(data);
+        success: function (res) {
+            callback && callback(res);
         }
-    });
+    })
 }
 
+// 下拉选择
+var initDropDown = function () {
+    var $dropDown = $('#dropdownMenu1')
+    $.ajax({
+        type: "get",
+        url: "/category/querySecondCategoryPaging",
+        data: {
+            page: 1,
+            pageSize: 100
+        },
+        dataType: "json",
+        success: function (res) {
+            $('.dropdown-menu').html(template('dropDown', res)).find('li').on('click', function () {
+                // 显示选中的分类名称
+                $('.categoryName').html($(this).find('a').html())
+                window.categoryId = $(this).find('a').attr('data-id')
+            })
+        }
+    })
+}
+// 图片上传
+var initUpLoad = function () {
+    $('[name="pic1"]').fileupload({
+        /*上传地址*/
+        url: '/category/addSecondCategoryPic',
+        /*返回格式*/
+        dataType: 'json',
+        /*上传成功*/
+        done: function (e, data) {
+            $('#uploadImage').attr('src', data.result.picAddr) //动态修改预览图的src
+            $('[name="brandLogo"]').val(data.result.picAddr)   //图片上传成功后 后台返回来的图片路径  前后台要约定好
+            // $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'VALID')
+        }
+    })
+}
 
