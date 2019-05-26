@@ -137,20 +137,37 @@ $(function () {
     }).on('success.form.bv', function (e) {
         e.preventDefault()
 
-       
-        var $data = $(e.target).serialize()
-        console.log($data)
-        // $.ajax({
-        //     type: "post",
-        //     url: "/product/addProduct",
-        //     data: $data,
-        //     dataType: "json",
-        //     success: function (res) {
-        //         console.log(res)
-        //         // 关闭模态框
-        //         $('#editModal').modal('show')
-        //     }
-        // })
+        var $form = $(e.target) 
+        // console.log(e.target)   // => form{action="#"…}
+        var dataObj = {
+            proName: $.trim($("[name='proName']").val()),
+            oldPrice: $.trim($("[name='oldPrice']").val()),
+            price: $.trim($("[name='price']").val()),
+            proDesc: $.trim($("[name='proDesc']").val()),
+            size: $.trim($("[name='size']").val()),
+            statu: 1,
+            num: $.trim($("[name='num']").val()),
+            brandId: 1
+        }
+        $.ajax({
+            type: "post",
+            url: "/product/addProduct",
+            data: dataObj,
+            dataType: "json",
+            success: function (res) {
+                console.log(res)
+                if (res.success) {
+                    // 关闭模态框-重新渲染
+                    $('#editModal').modal('hide')
+                    currPage = 1
+                    render()
+                    /*重置表单数据和校验样式*/
+                    $form.data('bootstrapValidator').resetForm()
+                    $form.find('img').remove()
+                    $form[0].reset()
+                }
+            }
+        })
     })
 })
 
@@ -167,21 +184,6 @@ var getProductData = function (params, callback) {
         }
     })
 }
-
-// 产品修改 （需要登录）
-// var getProductData = function (params, callback) {
-//     $.ajax({
-//         type: "post",
-//         url: "/product/updateProduct",
-//         data: params,
-//         dataType: "json",
-//         success: function (response) {
-//             console.log(response)
-//             // callback && callback(response)
-//         }
-//     })
-// }
-// getProductData()
 
 // 图片上传
 var picList = []
