@@ -178,7 +178,6 @@ var getProductData = function (params, callback) {
         data: params,
         dataType: "json",
         success: function (response) {
-            // console.log(response)
             callback && callback(response)
         }
     })
