@@ -14,8 +14,8 @@ Ajax进度条组件、</br>
 `http://localhost:3000/h5/index.html` 
 </br>
 </br>
-移动端登录密码可数据库可视化软件查看：root 11111 </br>
-pc端的登录密码：root 123456
+移动端登录账号密码可以由数据库可视化软件查看：root 11111 </br>
+pc端的登录账号密码：root 123456
 
 
 SQL语句导入到Wampserver64即可使用：是Windows上的Web开发平台，允许您使用Apache2，PHP和MySQL创建动态Web应用程序。
