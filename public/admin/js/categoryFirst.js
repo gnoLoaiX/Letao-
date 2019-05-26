@@ -110,5 +110,5 @@ var addCategoryFirstData = function (params, callback) {
                 callback && callback(response)
             }
         }
-    });
+    })
 }
