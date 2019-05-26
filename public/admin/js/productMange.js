@@ -155,7 +155,6 @@ $(function () {
             data: dataObj,
             dataType: "json",
             success: function (res) {
-                console.log(res)
                 if (res.success) {
                     // 关闭模态框-重新渲染
                     $('#editModal').modal('hide')
