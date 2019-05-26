@@ -8,7 +8,6 @@ $(function () {
         return jQuery
     })
 
-    // currPage 页码
     var currPage = 1
     // 1、渲染用户数据
     var render = function () {
@@ -42,48 +41,43 @@ $(function () {
         })
     }
 
-    // 3、点击添加 二级分类功能
     // 3.1、显示模态框
     $('#addBtn').on('click', function () {
         $('#addModal').modal('show')
     })
     initDropDown()
     initUpLoad()
-
+    
     // 3.2、进行表单校验--代码copy修改
-    $("form").bootstrapValidator({
-        /*校验插件默认会忽略  隐藏的表单元素
-        不忽略任何情况的表单元素*/
-        excluded: [],
-        // 设置验证通过和不通过的图标
+    $("#save #form").bootstrapValidator({
+        /*校验插件默认会忽略  隐藏的表单元素 */
+        excluded: [],   
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
         },
         live: 'enabled',
-        // 表单域配置--是用来设置from中具体的表单元素验证的
-        fields: {
-            // categoryName为input标签name值
-            categoryName: {
+        fields:{
+            categoryId:{
                 validators: {
-                    //非空提示
                     notEmpty: {
-                        message: '一级分类名称不能为空'
+                        message: '请选择一级分类'
                     }
-                },
-                brandName: {
-                    validators: {
-                        notEmpty: {
-                            message: '请输入二级分类名称'
-                        }
+                }
+            },
+            brandName:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入二级分类名称'
                     }
-                },
-                brandLogo: {
-                    validators: {
-                        notEmpty: {
-                            message: '请上传二级分类Logo'
-                        }
+                }
+            },
+            brandLogo:{
+                trigger:"change", 
+                validators: {
+                    notEmpty: {
+                        message: '请上传二级分类Logo'
                     }
                 }
             }
@@ -92,23 +86,19 @@ $(function () {
         e.preventDefault();
         /*提交数据了*/
         var $form = $(e.target)
-        // var dataObj = {
-        //     categoryId: window.categoryId,
-        //     brandName: $.trim($("[name='brandName']").val()),
-        //     brandLogo: $.trim($('[name="brandLogo"]').val()),
-        //     hot: 0
-        // }
-        // console.log(dataObj.categoryId +'======'+ dataObj.brandName)
+        // 验证数据传值
+        var dataObj = {
+            categoryId: window.cateId,
+            brandName: $.trim($("[name='brandName']").val()),
+            brandLogo: $.trim($('[name="brandLogo"]').val()),
+            hot: 0       
+        }
+        // console.log(dataObj)
 
         $.ajax({
             type: "post",
             url: "/category/addSecondCategory",
-            data: {
-                categoryId: window.categoryId,
-                brandName: $.trim($("[name='brandName']").val()),
-                brandLogo: $.trim($('[name="brandLogo"]').val()),
-                hot: 0
-            },
+            data: dataObj,
             dataType: "json",
             success: function (res) {
                 if (res.success) {
@@ -119,7 +109,8 @@ $(function () {
                     /*重置表单*/
                     $form.data('bootstrapValidator').resetForm()
                     $form.find('input').val('')
-                    $('.dropdown-text').html('请选择')
+                    $('[name="categoryName"]').html('请选择')
+                    $.trim($("[name='brandName']").val())
                     $form.find('img').attr('src','images/none.png')
                 }
             }
@@ -139,13 +130,12 @@ var getCategorySecondData = function (params, callback) {
         }
     })
 }
-
 // 下拉选择
 var initDropDown = function () {
     var $dropDown = $('#dropdownMenu1')
     $.ajax({
         type: "get",
-        url: "/category/querySecondCategoryPaging",
+        url: "/category/queryTopCategoryPaging",
         data: {
             page: 1,
             pageSize: 100
@@ -153,9 +143,13 @@ var initDropDown = function () {
         dataType: "json",
         success: function (res) {
             $('.dropdown-menu').html(template('dropDown', res)).find('li').on('click', function () {
-                // 显示选中的分类名称
+                // 显示选中的分类名称-同时要把id值给input 这样才能达到目的
                 $('.categoryName').html($(this).find('a').html())
-                window.categoryId = $(this).find('a').attr('data-id')
+                $('[name=categoryId]').val($(this).find('a').attr('data-id'))
+                // 上传的不是分类 而是分类所属的id
+                window.cateId = $(this).find('a').attr('data-id')
+                // 和上传业务一样 改变状态
+                $('#form').data('bootstrapValidator').updateStatus('categoryId', 'VALID')
             })
         }
     })
@@ -170,8 +164,9 @@ var initUpLoad = function () {
         /*上传成功*/
         done: function (e, data) {
             $('#uploadImage').attr('src', data.result.picAddr) //动态修改预览图的src
-            $('[name="brandLogo"]').val(data.result.picAddr)   //图片上传成功后 后台返回来的图片路径  前后台要约定好
-            // $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'VALID')
+            $('[name="brandLogo"]').val(data.result.picAddr).change()   //图片上传成功后 后台返回来的图片路径  前后台要约定好
+            // 选择的时候应该改变校验状态 否则即使点击了还是（×）
+            $('#form').data('bootstrapValidator').updateStatus('brandLogo', 'VALID')
         }
     })
 }

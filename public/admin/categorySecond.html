@@ -105,19 +105,16 @@
                     <form id="form">
                         <div class="form-group">
                             <div>
-                                <label>一级分类:</label>
+                                <span>一级分类：</span>
                                 <!--下拉菜单-->
-                                <div class="dropdown btn-group">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                                        <span class="categoryName">请选择</span>
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <!--TODO-->
-                                    </ul>
-                                </div>
+                                <button class="btn btn-default" type="button" data-toggle="dropdown">
+                                    <span class="categoryName">请选择</span> <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <!--TODO-->
+                                </ul>
                             </div>
-                            <!--序列化表单 获取表单元素的值-->
+                            <!--序列化表单 只能获取表单元素的值 属性名字和后台值 一致-->
                             <input type="hidden" name="categoryId">
                         </div>
                         <div class="form-group">
@@ -125,7 +122,7 @@
                         </div>
                         <div class="form-group"  style="position: relative">
                             <button class="btn btn-default">上传图片</button>
-                            <input type="file" name="pic1">
+                            <input type="file" name="pic1" enctype="multipart/form-data">
                             <input type="hidden" name="brandLogo">
                         </div>
                         <img id="uploadImage" src="images/none.png"  width="100" height="100" alt="">
@@ -134,17 +131,18 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <!-- 如何让按钮和表单关联 form设置id 按钮指明form 这是h5的关联 -->
                     <button type="submit" form="form" class="btn btn-primary" id="submit">确认</button>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/template" id="dropDown">
-        <% var $ = getJquery(); %>
-        <% $.each(rows,function(i,item){%>
-            <li><a data-id="<%=item.id%>" href="javascript:;"><%=item.categoryName%></a></li>
-        <% }); %>
-    </script>
+<script type="text/template" id="dropDown">
+    <% var $ = getJquery(); %>
+    <% $.each(rows,function(i,item){%>
+        <li><a data-id="<%=item.id%>" href="javascript:;"><%=item.categoryName%></a></li>
+    <% }); %>
+</script>
 <script type="text/template" id="template">
     <% for(var i = 0 ; i < rows.length ; i ++ ){ %>
         <tr>
