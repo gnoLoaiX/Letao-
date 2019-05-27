@@ -10,7 +10,7 @@ Ajax进度条组件、</br>
 模板引擎渲染、</br>
 图片上传插件</br>
 
-进行前后端分离开发需要配置好本地开发环境。Download的时候在根目录右键（命令行）`npm install` 这时用命令行 `npm start` 启动项目，因为源码部署于服务器，环境运行在 `node` 中。要使用规定的 `URL`地址：
+进行前后端分离开发需要配置好本地开发环境。Download的时候在根目录右键（命令行）`npm install`、`npm init -y`这时用命令行 `npm start` 启动项目，因为源码部署于服务器，环境运行在 `node` 中。要使用规定的 `URL`地址：
 `http://localhost:3000/h5/index.html` 
 </br>
 </br>
@@ -19,10 +19,13 @@ pc端的登录账号密码：root 123456
 
 
 SQL语句导入到Wampserver64即可使用：是Windows上的Web开发平台，允许您使用Apache2，PHP和MySQL创建动态Web应用程序。
+</br></br>
+移动端界面：
 </br>
-
 <img width="967" height="734" src="https://github.com/gnoLoaiX/letao--/blob/master/public/h5/images/show.png"/>
-<img width="967" height="734" src="https://github.com/gnoLoaiX/Letao-/blob/master/public/h5/images/readme.png"/>
+PC端界面：
+</br>
+<img width="1080" height="450" src="https://github.com/gnoLoaiX/Letao-/blob/master/public/h5/images/readme.png"/>
 
 
 
