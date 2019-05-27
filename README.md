@@ -22,10 +22,10 @@ SQL语句导入到Wampserver64即可使用：是Windows上的Web开发平台，�
 </br></br>
 移动端界面：
 </br>
-<img width="967" height="734" src="https://github.com/gnoLoaiX/letao--/blob/master/public/h5/images/show.png"/>
+<img width="967" height="734" src="https://github.com/gnoLoaiX/letao--/blob/master/public/mobile/images/show.png"/>
 PC端界面：
 </br>
-<img width="1080" height="450" src="https://github.com/gnoLoaiX/Letao-/blob/master/public/h5/images/readme.png"/>
+<img width="1080" height="450" src="https://github.com/gnoLoaiX/Letao-/blob/master/public/mobile/images/readme.png"/>
 
 
 
