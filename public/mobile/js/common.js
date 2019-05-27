@@ -18,9 +18,9 @@ LT.getParamsByUrl = function () {
 }
 
 // 封装需要登录的ajax请求--做登录拦截
-LT.loginUrl = '/h5/user/login.html'
-LT.cartUrl = '/h5/user/cart.html'
-LT.userUrl = '/h5/user/userIndex.html'
+LT.loginUrl = '/mobile/user/login.html'
+LT.cartUrl = '/mobile/user/cart.html'
+LT.userUrl = '/mobile/user/userIndex.html'
 LT.loginAjax = function (params) {
     $.ajax({
         url: params.url || "#",
