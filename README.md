@@ -11,7 +11,7 @@ Ajax进度条组件、</br>
 图片上传插件</br>
 
 进行前后端分离开发需要配置好本地开发环境。Download的时候在根目录右键（命令行）`npm install`、`npm init -y`这时用命令行 `npm start` 启动项目，因为源码部署于服务器，环境运行在 `node` 中。要使用规定的 `URL`地址：
-`http://localhost:3000/h5/index.html` 
+`http://localhost:3000/mobile/index.html` 
 </br>
 </br>
 移动端登录账号密码可以由数据库可视化软件查看：root 11111 </br>
