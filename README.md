@@ -19,10 +19,12 @@ pc端的登录账号密码：root 123456
 
 
 SQL语句导入到Wampserver64即可使用：是Windows上的Web开发平台，允许您使用Apache2，PHP和MySQL创建动态Web应用程序。
-</br>
+</br></br>
 移动端界面：
+</br>
 <img width="967" height="734" src="https://github.com/gnoLoaiX/letao--/blob/master/public/h5/images/show.png"/>
 PC端界面：
+</br>
 <img width="1080" height="450" src="https://github.com/gnoLoaiX/Letao-/blob/master/public/h5/images/readme.png"/>
 
 
