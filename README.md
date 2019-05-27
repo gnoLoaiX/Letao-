@@ -4,11 +4,11 @@
 </br></br>
 主要使用的插件是：</br>
 mui框架使用</br>
-前端校验插件bootstrap-validator、</br>
-echarts数据可视化、</br>
-Ajax进度条组件nprogress、</br>
-模板引擎渲染art-template、</br>
-图片上传插件jquery-fileupload</br>
+前端校验插件`bootstrap-validator`、</br>
+`echarts`数据可视化、</br>
+Ajax进度条组件`nprogress`、</br>
+模板引擎渲染`art-template`、</br>
+图片上传插件`jquery-fileupload`</br>
 
 进行前后端分离开发需要配置好本地开发环境。Download的时候在根目录右键（命令行）`npm install`、`npm init -y`这时用命令行 `npm start` 启动项目，因为源码部署于服务器，环境运行在 `node` 中。要使用规定的 `URL`地址：
 `http://localhost:3000/mobile/index.html` 
